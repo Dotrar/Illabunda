@@ -23,12 +23,15 @@ from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
+from Kookaburra.kookaburra import urls as kookaburra_urls
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('cms/', include(wagtailadmin_urls)),
-    path('documents/', include(wagtaildocs_urls)),
+    path("admin/", admin.site.urls),
+    path("cms/", include(wagtailadmin_urls)),
+    path("documents/", include(wagtaildocs_urls)),
+    path("operations/", include(kookaburra_urls)),
     # Keep the most generic at the bottom so that it does not override others
-    path('', include(wagtail_urls)),
+    path("", include(wagtail_urls)),
 ]
 
 # wagtailadmin_urls provide the admin interface for wagtail, which is different to the admin interface for django
