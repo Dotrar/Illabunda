@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 WAGTAIL_SITE_NAME = "Illabunda Village"
+AUTH_USER_MODEL = "raven.Resident"
 
 # Application definition
 
@@ -55,7 +56,7 @@ INSTALLED_APPS = [
     # Kookaburra app
     "Kookaburra.kookaburra",
     # Illabunda specific apps
-    "frontpage",
+    "raven",
 ]
 
 MIDDLEWARE = [

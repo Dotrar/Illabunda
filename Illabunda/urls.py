@@ -30,6 +30,9 @@ urlpatterns = [
     path("cms/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("operations/", include(kookaburra_urls)),
+    # Any specific views (including registration) is done in our own app. everything else
+    # is done in wagtail
+    path("online/", include("raven.urls", namespace="raven")),
     # Keep the most generic at the bottom so that it does not override others
     path("", include(wagtail_urls)),
 ]
