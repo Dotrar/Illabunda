@@ -15,6 +15,7 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 
 # Create your models here.
 
+
 class HomePage(Page):
     # https://docs.wagtail.io/en/stable/reference/streamfield/blocks.html#streamfield-block-reference
     body = StreamField(
@@ -59,6 +60,7 @@ class Resident(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(unique=True, blank=False)
     is_active = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
 
     firstname = models.CharField(max_length=20)
     lastname = models.CharField(max_length=20)
@@ -69,12 +71,10 @@ class Resident(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return f"{self.firstname} ({self.house_number})"
 
-    house_number = models.CharField(
-        max_length=4,
-    )
+    house_number = models.CharField(max_length=4, blank=True, default="")
 
-    short_bio = models.TextField(blank=True)
+    short_bio = models.TextField(blank=True, default="")
 
-    birthday = models.DateField(blank=True)
+    birthday = models.DateField(null=True, default=None)
 
     objects = ResidentManager()
