@@ -13,3 +13,6 @@ This is the operations site that works behind the scenes to give you <https://il
 Our code is given in the GPL license as a way to ensure that it's open for everyone. This means if you're looking to use this code (on the whole) for your ecovillage or other community, you must also open source as GPL code, and share modifications. We can also share our developments with you, and collectively we can all make a great piece of software together!
 
 
+## Todo
+
+- Make a favicon and general logo / imagery

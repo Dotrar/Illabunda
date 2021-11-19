@@ -1,0 +1,29 @@
+{%load wagtailcore_tags %}
+<nav class='nav nav-pills nav-justified'>
+  {% for item in page.get_siblings %}
+  {% with item=item.specific %}
+  <a class='nav-item nav-link {%if page.title == item.title %}active{%endif%}' href='{% pageurl item %}'>{{item.title}}</a>
+  {% endwith %}
+  {% endfor %}
+
+
+
+  {% if user.is_authenticated %}
+  <div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Resident Menu</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/operations">Forums</a>
+      {% if user.is_staff %}
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/admin">Django Admin</a>
+      <a class="dropdown-item" href="/cms">CMS Management</a>
+      {% endif %}
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/logout">Log out</a>
+    </div>
+  </div>
+  {% else %}
+  <a class='nav-item nav-link ' href='#'>Resident Log in</a>
+  {% endif %} 
+
+</nav>

@@ -1,8 +1,6 @@
+{% extends 'raven/base.html' %}
 {% load wagtailcore_tags %}
 
-Check out our <a href='/operations'>Operations</a>
-<p>
-our page content:
+{% block body_content %}
 {% include_block page.body %}
-end of page content
-</p>
+{% endblock body_content %}
