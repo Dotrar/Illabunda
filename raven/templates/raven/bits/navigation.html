@@ -1,9 +1,15 @@
 {%load wagtailcore_tags %}
 <nav class='nav nav-pills nav-justified'>
+  {% for item in page.get_children %}
+  {% with item=item.specific %}
+  <a class='nav-item nav-link {%if page.title == item.title %}active{%endif%}' href='{% pageurl item %}'>{{item.title}}</a>
+  {% endwith %}
+  {% empty %}
   {% for item in page.get_siblings %}
   {% with item=item.specific %}
   <a class='nav-item nav-link {%if page.title == item.title %}active{%endif%}' href='{% pageurl item %}'>{{item.title}}</a>
   {% endwith %}
+  {% endfor %}
   {% endfor %}
 
 
